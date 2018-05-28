@@ -1,6 +1,6 @@
 const User = require("./User");
 
-const data = {};
+const data = { name: 1, age: [], friends: {} };
 
 const user = new User(data);
 
@@ -10,7 +10,7 @@ console.log("--------------------------");
 const data2 = {
   name: "foo",
   age: 12,
-  friends: [data],
+  friends: [],
   address: {
     street: "foo",
     city: "bar"

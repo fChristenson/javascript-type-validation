@@ -4,12 +4,17 @@ const typeChecker = (type, defaultValue, fieldName) => val => {
     return defaultValue;
   }
 
+  if (type === "array" && Array.isArray(val)) return val;
+
   if (type === "object" && Array.isArray(val)) {
     console.warn(`Expected ${fieldName} to be object but got array`);
     return defaultValue;
   }
 
-  if (type === "array" && Array.isArray(val)) return val;
+  if (typeof val !== type && Array.isArray(val)) {
+    console.warn(`Expected ${fieldName} to be ${type} but got array`);
+    return defaultValue;
+  }
 
   if (typeof val !== type) {
     console.warn(`Expected ${fieldName} to be ${type} but got ${typeof val}`);

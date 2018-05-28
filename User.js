@@ -1,8 +1,10 @@
 const typeChecker = require("./typeChecker");
 const Address = require("./Address");
+const Inspectable = require("./Inspectable");
 
-class User {
+class User extends Inspectable {
   constructor(data) {
+    super(data);
     const tmp = typeof data === "object" ? data : {};
 
     this._getName = typeChecker("string", "", "name");
@@ -15,10 +17,6 @@ class User {
       friend => new User(friend)
     );
     this.address = new Address(tmp.address);
-  }
-
-  inspect() {
-    return JSON.stringify(this, null, 2);
   }
 }
 
