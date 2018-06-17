@@ -16,3 +16,4 @@ then we can trust the shape of our data for the rest of the program.
 If we want to add types to our project using something like TypeScript or Flow
 is recommended but if we are using vanilla JavaScript this approach I have
 found to be very useful.
+# javascript-serializer-example
